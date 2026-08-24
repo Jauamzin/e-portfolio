@@ -10,27 +10,13 @@
     progress.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
   }
 
-  /* ---- parallax ----
-     Two flavors, both driven by the same [data-speed] attribute:
-     - plain layers (hero, chapter frames) drift by a coefficient of
-       their own distance from the viewport center.
-     - layers inside a pinned .stack-slot don't move on their own
-       (they're sticky), so instead they drift by a pixel amplitude
-       tied to how far the visitor has scrolled through that slot. */
+  /* ---- parallax: background layers drift by a coefficient of their
+     own distance from the viewport center (hero image, chapter frames) ---- */
   var layers = Array.prototype.slice.call(document.querySelectorAll('[data-speed]'));
   function updateParallax() {
     if (reduce) return;
     var vh = window.innerHeight;
     layers.forEach(function (el) {
-      var slot = el.closest('.stack-slot');
-      if (slot) {
-        var srect = slot.getBoundingClientRect();
-        var total = srect.height - vh;
-        var slotProgress = total > 0 ? Math.min(1, Math.max(0, -srect.top / total)) : 0;
-        var amp = parseFloat(el.getAttribute('data-speed')) || 60;
-        el.style.transform = 'translateY(' + ((slotProgress - 0.5) * amp) + 'px)';
-        return;
-      }
       var rect = el.parentElement.getBoundingClientRect();
       var center = rect.top + rect.height / 2 - vh / 2;
       var speed = parseFloat(el.getAttribute('data-speed')) || 0.15;
