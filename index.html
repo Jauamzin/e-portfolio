@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Honing the Edge — Juan de Paula</title>
+<meta name="description" content="Juan de Paula on who he was in Brazil, who he is now in Ireland, and who he's training to become.">
+
+<!-- Fonts: Fraunces (display), Work Sans (body), IBM Plex Mono (labels/data) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..900;1,9..144,300..900&family=Work+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="progress" id="progress"></div>
+
+<nav class="chapter-nav" id="chapterNav" aria-label="Chapters">
+  <button data-target="before"   data-label="I · Before"     aria-label="Jump to Who I Was"></button>
+  <button data-target="now"      data-label="II · Now"       aria-label="Jump to Who I Am Now"></button>
+  <button data-target="becoming" data-label="III · Becoming" aria-label="Jump to Who I Want to Be"></button>
+  <button data-target="ahead"    data-label="IV · Ahead"     aria-label="Jump to What I Want in Life"></button>
+</nav>
+
+<header class="hero">
+  <div class="hero__bg" data-speed="0.28">
+    <img src="images/hero-fighter.jpg" alt="Juan de Paula in profile, mid-training, in a blue Brazilian jiu-jitsu gi.">
+  </div>
+  <div class="hero__scrim"></div>
+  <div class="hero__content">
+    <p class="eyebrow hero__eyebrow">A journey in progress</p>
+    <h1>Juan&nbsp;de&nbsp;Paula</h1>
+    <p class="hero__tagline">A record of who I was, who I am, and who I am still training to become.</p>
+
+    <div class="flight-map" aria-hidden="false">
+      <svg class="flight-map__svg" viewBox="0 0 640 170" role="img" aria-label="Flight path from Brazil to Ireland, with Spain and Germany marked ahead">
+        <path class="flight-map__done" d="M40,130 C160,45 220,25 330,55"/>
+        <path class="flight-map__ahead" d="M330,55 C420,80 500,65 600,95"/>
+        <circle class="flight-map__node" cx="40" cy="130" r="4"/>
+        <circle class="flight-map__node" cx="330" cy="55" r="4"/>
+        <circle class="flight-map__node flight-map__node--future" cx="600" cy="95" r="6"/>
+        <text class="flight-map__label" x="34" y="152">BR</text>
+        <text class="flight-map__label" x="322" y="34">IE</text>
+        <text class="flight-map__label flight-map__label--future" x="566" y="120">ES · DE</text>
+        <g class="flight-map__plane">
+          <path d="M-7,0 L6,-3.4 L2,0 L6,3.4 Z"/>
+          <animateMotion dur="7s" repeatCount="indefinite" rotate="auto" calcMode="linear"
+            path="M40,130 C160,45 220,25 330,55"/>
+          <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;0.08;0.92;1" dur="7s" repeatCount="indefinite"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+  <div class="hero__scroll"><span class="line"></span>SCROLL</div>
+</header>
+
+<main>
+
+  <section class="chapter" id="before">
+    <div class="chapter__media reveal reveal-1">
+      <div class="frame">
+        <div class="frame__layer" data-speed="0.14"><img src="images/brazil.jpg" alt="Juan smiling on a lit-up street in Brazil, beneath a canopy of hanging umbrellas."></div>
+        <div class="frame__edge"></div>
+        <div class="frame__cap">BRAZIL — BEFORE THE DECISION</div>
+      </div>
+    </div>
+    <div class="chapter__text">
+      <p class="eyebrow reveal reveal-1">I — Brazil, before Ireland</p>
+      <h2 class="reveal reveal-2">Who I Was</h2>
+      <blockquote class="pull reveal reveal-2">Comfort was never the same as fulfilment.</blockquote>
+      <p class="reveal reveal-2">I am Juan de Paula, and what follows is the account of a decision that reshaped my life.</p>
+      <p class="reveal reveal-3">I was born and raised in Brazil, a country I love without reservation, yet one whose financial instability and security concerns I could never fully make peace with. By the time I reached my late twenties, I had climbed to the peak of my career. My company was generating solid revenue, and by most measures, I was living comfortably. Rarely, however, does comfort alone answer the questions that matter most, and nowhere in that success could I picture the family I wanted to build one day.</p>
+      <p class="reveal reveal-3">Despite the figures looking fine on paper, my business had stopped moving forward. Little by little, that stagnation wore on me, and although I was never someone who lacked confidence, I came close to depression during that period. I carried a great many rough edges then, unresolved parts of my personality that Brazil's pace of life never forced me to confront.</p>
+      <p class="reveal reveal-4">So, I decided to leave. Only after years of turning the idea over in my mind did I finally act on it. First, I applied for a work visa in the United States, where a job was already waiting for me. It was denied. Then I tried Canada. Denied again. Not until Ireland opened its doors did the plan take proper shape, and looking back, rarely has a rejection redirected a life so precisely toward where it needed to go.</p>
+    </div>
+  </section>
+
+  <section class="chapter chapter--reverse" id="now">
+    <div class="chapter__media reveal reveal-1">
+      <div class="frame">
+        <div class="frame__layer" data-speed="0.14"><img src="images/ireland.jpg" alt="Juan laughing in front of a stone monument in Ireland, on a green lawn."></div>
+        <div class="frame__edge"></div>
+        <div class="frame__cap">IRELAND — NOW</div>
+      </div>
+    </div>
+    <div class="chapter__text">
+      <p class="eyebrow reveal reveal-1">II — Ireland, now</p>
+      <h2 class="reveal reveal-2">Who I Am Now</h2>
+      <blockquote class="pull reveal reveal-2">Rarely have I felt as certain of who I am as I do now.</blockquote>
+      <p class="reveal reveal-2">Ireland has given me more than a visa route and a fresh start. It has given me room to hone the edges I mentioned earlier, and slowly, it has made my personality more solid.</p>
+      <p class="reveal reveal-3">I was never an insecure person, but rarely have I felt as certain of who I am as I do now. Only through distance from everything familiar did I learn to set boundaries clearly and to define my goals without hesitation. Not only has my confidence grown, but my sense of direction has sharpened alongside it.</p>
+      <p class="reveal reveal-3">Professionally, the shift has been just as significant. Back in Brazil, my company was standing still. Here, it is close to taking off. What used to be a small, tired operation now employs more people than before, and for the first time in years, I feel genuinely stable, both financially and mentally. Seldom does a single decision change so much at once, yet leaving Brazil did exactly that.</p>
+      <p class="reveal reveal-4">None of this happened overnight, and I will not pretend the adjustment was effortless. New cities, new seasons, and rain that never quite stops all took some getting used to. Still, rarely have I regretted a decision less. Ireland gave me room to grow into a steadier version of myself, and I intend to keep building on that foundation.</p>
+    </div>
+  </section>
+
+  <section class="chapter" id="becoming">
+    <div class="chapter__media reveal reveal-1">
+      <div class="frame">
+        <div class="frame__layer" data-speed="0.14"><img src="images/blue-belt-promotion.jpg" alt="Juan being promoted to blue belt in Brazilian jiu-jitsu, addressing the room while training partners look on."></div>
+        <div class="frame__edge"></div>
+        <div class="frame__cap">BLUE BELT PROMOTION — THE STANDARD I'M RETURNING TO</div>
+      </div>
+    </div>
+    <div class="chapter__text">
+      <p class="eyebrow reveal reveal-1">III — The mat, becoming</p>
+      <h2 class="reveal reveal-2">Who I Want to Be</h2>
+      <blockquote class="pull reveal reveal-2">Only through consistent, uncompromising work will that level become reachable again.</blockquote>
+      <p class="reveal reveal-2">Before any of this, I trained hard. Brazilian jiu-jitsu, Muay Thai, grappling, competing whenever the calendar allowed. That version of myself, pictured here mid-promotion to blue belt, surrounded by training partners who pushed me forward, is a version I fully intend to meet again.</p>
+      <p class="reveal reveal-3">Not only do I want to return to that training schedule, but I want to surpass it. Rarely do people get a clean second chance at their physical peak, yet that is exactly what I am chasing now. Somewhat leaner than I once was, having lost some muscle along the way, I am not currently at 100 percent condition. Soon, though, I intend to be.</p>
+      <p class="reveal reveal-3">Beyond simply training, I want to compete again, seriously this time. ADCC and the UFC represent the level I am aiming for, not as an idle daydream but as a genuine target I am building toward, day by day, session by session.</p>
+      <p class="reveal reveal-4">At the same time, I want a stable base to compete from. Securing a long-term work visa matters to me for exactly that reason: not only for security, but as an anchor, a fixed point from which I can commit fully to both career and sport without constantly wondering what comes next.</p>
+
+      <div class="log-strip reveal reveal-4">
+        <div class="log-card"><img src="images/sparring-session.jpg" alt="Juan sparring in Muay Thai, wearing Brazil and Thailand flag patches."></div>
+        <div class="log-card log-card--badge"><img src="images/adcc.jpg" alt="ADCC Submission Fighting World Federation logo."></div>
+        <div class="log-card log-card--badge"><img src="images/ufc.jpg" alt="UFC logo."></div>
+      </div>
+      <div class="log-caps">
+        <span>TRAINING NOW</span>
+        <span>ADCC — THE GOAL</span>
+        <span>UFC — THE GOAL</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter chapter--ahead" id="ahead">
+    <div class="ember-field" id="emberField"></div>
+    <div class="inner">
+      <p class="eyebrow reveal reveal-1">IV — Spain / Germany, ahead</p>
+      <h2 class="reveal reveal-2">What I Want in Life</h2>
+      <p class="reveal reveal-2">Looking further ahead, my plans extend beyond Ireland. Spain or Germany stands as the next chapter, a country where I hope to eventually earn citizenship and put down roots that last. Not only do I want a passport there, but I want a genuine, long-term home.</p>
+      <p class="reveal reveal-3">Once settled, my focus will narrow to what matters most: my career, my training, and eventually, my family. Only after building that foundation, professionally solid and physically strong, do I want to start one. Rarely does anyone get every piece to align perfectly, but that is the order I am working toward, deliberately and patiently.</p>
+      <p class="reveal reveal-3">This website marks a point along that path, not the destination. Brazil shaped me. Ireland is refining me. Whatever comes next, Spain, Germany, a title, a family, will be built on everything these years have already taught me.</p>
+      <div class="signature reveal reveal-4">
+        <span class="name">Juan de Paula</span>
+        <span class="stamp">WRITTEN FROM IRELAND · 2026</span>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <span>© 2026 Juan de Paula</span>
+  <span>Brazil · Ireland · what's next</span>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
