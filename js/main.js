@@ -10,17 +10,48 @@
     progress.style.width = (max > 0 ? (scrolled / max) * 100 : 0) + '%';
   }
 
-  /* ---- parallax ---- */
+  /* ---- parallax ----
+     Two flavors, both driven by the same [data-speed] attribute:
+     - plain layers (hero, chapter frames) drift by a coefficient of
+       their own distance from the viewport center.
+     - layers inside a pinned .stack-slot don't move on their own
+       (they're sticky), so instead they drift by a pixel amplitude
+       tied to how far the visitor has scrolled through that slot. */
   var layers = Array.prototype.slice.call(document.querySelectorAll('[data-speed]'));
   function updateParallax() {
     if (reduce) return;
     var vh = window.innerHeight;
     layers.forEach(function (el) {
+      var slot = el.closest('.stack-slot');
+      if (slot) {
+        var srect = slot.getBoundingClientRect();
+        var total = srect.height - vh;
+        var slotProgress = total > 0 ? Math.min(1, Math.max(0, -srect.top / total)) : 0;
+        var amp = parseFloat(el.getAttribute('data-speed')) || 60;
+        el.style.transform = 'translateY(' + ((slotProgress - 0.5) * amp) + 'px)';
+        return;
+      }
       var rect = el.parentElement.getBoundingClientRect();
       var center = rect.top + rect.height / 2 - vh / 2;
       var speed = parseFloat(el.getAttribute('data-speed')) || 0.15;
       el.style.transform = 'translateY(' + (-center * speed) + 'px)';
     });
+  }
+
+  /* ---- chapter nav: active state (scroll position, not IntersectionObserver)
+     "Becoming" now spans several viewport heights for its pinned image
+     stack, so a fixed intersection-ratio threshold would never fire for
+     it. Instead, track whichever section's top has scrolled past a
+     reference line near the top of the viewport. */
+  var sections = ['before', 'now', 'becoming', 'ahead'].map(function (id) { return document.getElementById(id); });
+  var navButtons = Array.prototype.slice.call(document.querySelectorAll('#chapterNav button'));
+  function updateActiveNav() {
+    var refY = window.innerHeight * 0.35;
+    var activeIdx = 0;
+    sections.forEach(function (sec, i) {
+      if (sec && sec.getBoundingClientRect().top <= refY) activeIdx = i;
+    });
+    navButtons.forEach(function (b, i) { b.classList.toggle('active', i === activeIdx); });
   }
 
   var ticking = false;
@@ -29,6 +60,7 @@
       window.requestAnimationFrame(function () {
         updateProgress();
         updateParallax();
+        updateActiveNav();
         ticking = false;
       });
       ticking = true;
@@ -54,28 +86,13 @@
     revealEls.forEach(function (el) { el.classList.add('is-visible'); });
   }
 
-  /* ---- chapter nav: active state + click to scroll ---- */
-  var sections = ['before', 'now', 'becoming', 'ahead'].map(function (id) { return document.getElementById(id); });
-  var navButtons = Array.prototype.slice.call(document.querySelectorAll('#chapterNav button'));
+  /* ---- chapter nav: click to scroll (active-state handled in the rAF loop above) ---- */
   navButtons.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var target = document.getElementById(btn.getAttribute('data-target'));
       if (target) target.scrollIntoView({ behavior: reduce ? 'auto' : 'smooth', block: 'start' });
     });
   });
-  if ('IntersectionObserver' in window) {
-    var navIo = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        var idx = sections.indexOf(entry.target);
-        if (idx === -1) return;
-        if (entry.isIntersecting) {
-          navButtons.forEach(function (b) { b.classList.remove('active'); });
-          navButtons[idx].classList.add('active');
-        }
-      });
-    }, { threshold: .4 });
-    sections.forEach(function (s) { if (s) navIo.observe(s); });
-  }
 
   /* ---- ember field (chapter IV) ---- */
   var field = document.getElementById('emberField');
