@@ -1,6 +1,6 @@
 (function () {
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
+a = 10;
   /* ---- scroll progress ---- */
   var progress = document.getElementById('progress');
   function updateProgress() {
